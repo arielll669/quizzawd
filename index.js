@@ -6,7 +6,7 @@ const app = express();
 
 app.use(express.json());
 
-const uri = "mongodb+srv://ariel:ariel@cluster0.oqhvcr9.mongodb.net/";
+const uri = process.env.MONGODB_URI || "mongodb+srv://ariel:ariel@cluster0.oqhvcr9.mongodb.net/";
 mongoose.connect(uri, { dbName: "stand" });
 
 app.get("/", (req, res) => {
